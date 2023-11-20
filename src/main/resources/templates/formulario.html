@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Ingresa los Datos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- BOOSTRAP -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- CREO LOS ESTILOS DEL CSS -->
+        <link rel="stylesheet" type="text/css" href="/formulario.css">
+        <!-- ICONO DE PESTAÑA -->
+        <link rel="icon" href="/imagenes/logoR.png" type="icon/png">
+
+    </head>
+    <body>
+        <!-- FRAGMENTS DEL NAVBAR -->
+        <nav th:replace="/fragments/navbar :: nav"></nav>
+
+
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/imagenes/calculando.jpg" class="d-block w-100 borde-negro" alt="...">
+                </div>
+                <!--
+              <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+              </div> -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div> 
+
+
+
+        <!-- -------------------------------------------------------------- -->
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="btn-group d-flex flex-wrap">
+                        <a href="/rh/informacion" class="btn btn-outline-primary">INFORMACION</a>
+                        <a href="/rh/formulario" class="btn btn-outline-primary">CREAR RECIBO</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form action="/rh/resultado" method="post">
+
+            <div class="container my-3">
+                <div class="row">
+                    <div class="col mb-0">
+                        <h4 class="Sunday" align="center">Datos Principales</h4>
+                        <table>
+                            <tr>
+                                <th>Tipo de Dato</th>
+                                <th>Ingrese Datos</th>
+                            </tr>
+                            <tr>
+                                <td><label for="legajo">Legajo</label></td>
+                                <td><input type="text" id="legajo" placeholder="Campo Requerido" name="legajo"  required pattern="[0-9]+" title="Ingrese solo números enteros"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="apellido">Apellido:</label></td>
+                                <td><input type="text" id="apellido" placeholder="Campo Requerido" name="apellido" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="nombre">Nombre:</label></td>
+                                <td><input type="text" id="nombre" placeholder="Campo Requerido" name="nombre" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="segundonombre">Segundo Nombre:</label></td>
+                                <td><input type="text" id="segundonombre" placeholder="Campo Requerido" name="segundonombre" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="mes">Mes y Año:</label></td>
+                                <td><input type="text" id="mes" placeholder="Campo Requerido" name="mes" required></td>
+                            </tr>
+
+                            <tr>
+                                <td><label for="respuesta">Estas Afiliado? si/no:</label></td>
+                                <td><input type="text" id="respuesta" placeholder="Campo Requerido" name="respuesta" required pattern="[a-z\s]+" title="Ingrese si o no"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="valorHoraNormal">Valor Hora Normal:</label></td>
+                                <td><input type="text" id="valorHoraNormal" placeholder="Campo Requerido" name="valorHoraNormal" required pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="valorHoraNoRem">Valor Hora NoRem:</label></td>
+                                <td><input type="text" id="valorHoraNoRem" placeholder="Campo Requerido" name="valorHoraNoRem"  required pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="diasPrimeraQ">Dias Primera Quincena:</label></td>
+                                <td><input type="text" id="diasPrimeraQ" placeholder="Campo Requerido" name="diasPrimeraQ"  required pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="diasSegundaQ">Dias Segunda Quincena:</label></td>
+                                <td><input type="text" id="diasSegundaQ" placeholder="Campo Requerido" name="diasSegundaQ"  required pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="sepelio">Sepelio:</label></td>
+                                <td><input type="text" id="sepelio" placeholder="Campo Requerido" name="sepelio" required pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                        </table>
+                        <br>
+                        <table>
+                            <h4 class="Sunday" align="center">Comedor y Productos</h4>
+
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Valor del Producto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Comedor</td>
+                                    <td><input type="text" style="width: 120px;" id="Comedor" placeholder="Cantida de Viandas" name="Comedor" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                    <td><input type="text" style="width: 120px;" id="Comedor1" placeholder="Valor de la Vianda" name="Comedor1" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                </tr>
+                                <tr>
+                                    <td>Producto 1</td>
+                                    <td><input type="text" style="width: 120px;" id="pollo" placeholder="Cantidad Producto" name="pollo" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                    <td><input type="text" style="width: 120px;" id="pollo1" placeholder="Valor del Producto" name="pollo1" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                </tr>
+                                <tr>
+                                    <td>Producto 2</td>
+                                    <td><input type="text" style="width: 120px;" id="supremacrispy" placeholder="Cantidad Producto" name="supremacrispy" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                    <td><input type="text" style="width: 120px;" id="supremacrispy1" placeholder="Valor del Producto" name="supremacrispy1" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                </tr>
+                                <tr>
+                                    <td>Producto 3</td>
+                                    <td><input type="text" style="width: 120px;" id="bocadito" placeholder="Cantidad Producto" name="bocadito" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                    <td><input type="text" style="width: 120px;" id="bocadito1" placeholder="Valor del Producto" name="bocadito1" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                </tr>
+                                <tr>
+                                    <td>Producto 4</td>
+                                    <td><input type="text" style="width: 120px;" id="medallon" placeholder="Cantidad Producto" name="medallon" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                    <td><input type="text" style="width: 120px;" id="medallon1" placeholder="Valor del Producto" name="medallon1" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                </tr>
+                                <!--
+                                <tr>
+                                    <td>Producto 5</td>
+                                    <td><input type="text" style="width: 120px;" id="nuguets" placeholder="Cantidad Producto" name="nuguets" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                    <td><input type="text" style="width: 120px;" id="nuguets1" placeholder="Valor del Producto" name="nuguets1" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                </tr>
+                                <tr>
+                                    <td>Producto 6</td>
+                                    <td><input type="text" style="width: 120px;" id="rikosaurio" placeholder="Cantidad Producto" name="rikosaurio" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                    <td><input type="text" style="width: 120px;" id="rikosaurio1" placeholder="Valor del Producto" name="rikosaurio1" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                </tr>
+                                <tr>
+                                    <td>Producto 7</td>
+                                    <td><input type="text" style="width: 120px;" id="cuartotrasero" placeholder="Cantidad Producto" name="cuartotrasero" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                    <td><input type="text" style="width: 120px;" id="cuartotrasero1" placeholder="Valor del Producto" name="cuartotrasero1" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                </tr>
+                                <tr>
+                                    <td>Producto 8</td>
+                                    <td><input type="text" style="width: 120px;" id="salchichas" placeholder="Cantidad Producto" name="salchichas" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                    <td><input type="text" style="width: 120px;" id="salchichas1" placeholder="Valor del Producto" name="salchichas1" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                                </tr> -->
+                                <!-- Agrega más filas para otros productos si es necesario -->
+                            </tbody>
+                        </table> 
+                    </div>
+                    <div class="col mb-0">
+                        <br>
+                        <h4 class="Sunday" align="center">Datos Adicionales</h4>
+                        <table>
+                            <tr>
+                                <th>Datos Adicionales</th>
+                                <th>Ingrese los Datos</th>
+                            </tr>
+                            <tr>
+                                <td><label for="feriado1EraQ">Feriado 1Era Quincena</label></td>
+                                <td><input type="text" id="feriado1EraQ" name="feriado1EraQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="feriado2DaQ">Feriado 2Da Quincena</label></td>
+                                <td><input type="text" id="feriado2DaQ" name="feriado2DaQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="HsExtra50EraQ">Hs Extras 50% 1Era Qui</label></td>
+                                <td><input type="text" id="HsExtra50EraQ" name="HsExtra50EraQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="HsExtra50DaQ">Hs Extras 50% 2Da Qui</label></td>
+                                <td><input type="text" id="HsExtra50DaQ" name="HsExtra50DaQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="HsExtra100EraQ">Hs Extras 100% 1Era Qui</label></td>
+                                <td><input type="text" id="HsExtra100EraQ" name="HsExtra100EraQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="HsExtra100DaQ">Hs Extras 100% 2Da Qui</label></td>
+                                <td><input type="text" id="HsExtra100DaQ" name="HsExtra100DaQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="HsEnNegro">Hs En Negro</label></td>
+                                <td><input type="text" id="HsEnNegro" name="HsEnNegro" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="HsNoct1EraQ">Hs Noct 1Era Qui</label></td>
+                                <td><input type="text" id="HsNoct1EraQ" name="HsNoct1EraQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="HsNoct2DaQ">Hs Noct 2Da Qui</label></td>
+                                <td><input type="text" id="HsNoct2DaQ" name="HsNoct2DaQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="HsExtraNoct50EraQ">Extras Noc 50% 1Era Qui</label></td>
+                                <td><input type="text" id="HsExtraNoct50EraQ" name="HsExtraNoct50EraQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="HsExtraNoct50DaQ">Extras Noc 50% 2Da Qui</label></td>
+                                <td><input type="text" id="HsExtraNoct50DaQ" name="HsExtraNoct50DaQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="permiso1eraQ">Permiso 1Era Qui</label></td>
+                                <td><input type="text" id="permiso1eraQ" name="permiso1eraQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="permiso2DaQ">Permiso 2Da Qui</label></td>
+                                <td><input type="text" id="permiso2DaQ" name="permiso2DaQ" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="ajustedeSueldo">Ajuste de Sueldo</label></td>
+                                <td><input type="text" id="ajustedeSueldo" name="ajustedeSueldo" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="descuentoajuste">Desc. Ajuste de Sueldo</label></td>
+                                <td><input type="text" id="descuentoajuste" name="descuentoajuste" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="bonificacion">Bonificacion %</label></td>
+                                <td><input type="text" id="bonificacion" name="bonificacion" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="ADELANTO">Adelanto de Sueldo</label></td>
+                                <td><input type="text" id="ADELANTO" name="ADELANTO" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="SUSPENSIONera">Suspension 1Era Qui</label></td>
+                                <td><input type="text" id="SUSPENSIONera" name="SUSPENSIONera" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="SUSPENSIONda">Suspension 2Da Qui</label></td>
+                                <td><input type="text" id="SUSPENSIONda" name="SUSPENSIONda" pattern="[0-9]+([.,][0-9]+)?" title="Ingrese solo números"></td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p><strong>Nota:</strong> Permiso 1ra y 2da Quincena, aquí agregas las horas que te ausentaste para hacer un trámite y no las devolviste.</p>
+
+
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 text-center"> <!-- Centra el contenido horizontalmente -->
+                                <!-- Tu contenido de formulario aquí -->
+                                <input type="submit" class="btn btn-primary" value="Crear RECIBO">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </form>
+        <br>
+        <br>
+
+        <!-- FRAGMENTS DEL FOOTER -->
+        <div th:replace="/fragments/footer :: div"></div>
+
+
+        <!-- Scripts de Bootstrap y jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+</html>
+

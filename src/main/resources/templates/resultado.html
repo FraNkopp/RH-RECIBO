@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Tu RECIBO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- BOOSTRAP -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- CREO LOS ESTILOS DEL CSS -->
+        <link rel="stylesheet" type="text/css" href="/resultado.css">
+        <!-- ICONO DE PESTAÑA -->
+        <link rel="icon" href="/imagenes/logoR.png" type="icon/png">
+        <style>
+            body { font-family: 'Arial', sans-serif; }
+            h1 { color: #007bff; }
+            table { width: 100%; border-collapse: collapse; }
+            /* Agrega más estilos según sea necesario */
+        </style>
+    </head>
+
+
+    <body>
+        <!-- FRAGMENTS DEL NAVBAR -->
+        <nav th:replace="/fragments/navbar :: nav"></nav>
+
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/imagenes/calculando.jpg" class="d-block w-100 borde-negro" alt="...">
+                </div>
+                <!--
+              <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+              </div> -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+        <!-- ------------------------------------------------------------ -->
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="btn-group d-flex flex-wrap">
+                        <a href="/rh/informacion" class="btn btn-outline-primary">INFORMACION</a>
+                        <a href="/rh/formulario" class="btn btn-outline-primary">CREAR RECIBO</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                        <a href="#" class="btn btn-outline-primary">Sin Contenido</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- *********************************************************************-->
+
+        <!-- TABLA DEL RECIBO -->
+        <div class="table-responsive">
+            <div class="container my-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="tabla-de-recibo">
+                            <table class="tablin"> <!-- CON ESTA TABLA DAMOS UN RECUADRO DE 1CM EN BLANCO -->
+                                <tr>
+                                    <td class="tede">
+                                        <table>
+                                            <tr>
+                                                <td class="logo0"><img class="img1" src="/imagenes/html.png" alt=""/></td>
+                                                <td colspan="3" class="logo1">
+                                                    <div class="mi-div">
+                                                        <p>FULLSTACK S.A.</p>
+                                                        <p>PROGRAMADOR WEB</p>
+                                                        <p>CDAD. AUT. DE RIO 4</p>
+                                                        <p>00.00000000.00</p>
+                                                    </div>
+                                                </td>
+                                                <td class="logo2" colspan="2">
+                                                    <div class="no-original">NO ORIGINAL</div>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="textoverde">NUM. DE LEGAJO</td>
+                                                <td class="textoverde" colspan="2">APELLIDO Y NOMBRE</td>
+                                                <td class="textoverde">C.U.I.L.</td>
+                                                <td class="textoverde" colspan="2">FECHA DE INGRESO</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><strong><span th:text="${recibo.legajo}"></span></strong></td>
+                                                <td colspan="2"><strong><span th:text="${recibo.apellido + ', ' + recibo.nombre + ' ' + recibo.segundonombre}"></span></strong></td>
+                                                <td>00.00000000.00</td>
+                                                <td colspan="2">01/01/2023</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td class="textoverde">PERIODO DE PAGO</td>
+                                                <td class="textoverde" colspan="2">OBRA SOCIAL</td>
+                                                <td class="textoverde">SINDICATO</td>
+                                                <td class="textoverde" colspan="2">FORMA CONTRATACION</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><span th:text="${recibo.mes}"></span></td>
+                                                <td colspan="2">OBRA SOCIAL</td>
+                                                <td><span th:text="${recibo.resp}"></span></td>
+                                                <td colspan="2">A TIEMPO COMPLETO INDETER</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="textoverde">SECCION</td>
+                                                <td class="textoverde">CLASIFICACION PROFECIONAL</td>
+                                                <td class="textoverde">CATEGORIA CONVENIO</td>
+                                                <td class="textoverde">VALOR HS NORMAL</td>
+                                                <td class="textoverde" colspan="2">VALOR HS NOREM</td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>SECTOR/ACTUAL</td>
+                                                <td>CALIFICADO</td>
+                                                <td>CALIFICADO</td>
+                                                <td><span th:text="${recibo.valorHoraNormal}"></td>
+                                                <td colspan="2"><span th:text="${recibo.valorHoraNoRem}"></td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td class="textoverde" colspan="2">CONCEPTO</td>
+                                                <td class="textoverde">UNIDADES</td>
+                                                <td class="textoverde">REMUNERACIONES</td>
+                                                <td class="textoverde">NO REMUNERADO</td>
+                                                <td class="textoverde">DESCUENTOS   </td>
+
+                                            </tr>
+                                            <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+                                            <tr th:if="${diasPrimeraQ != null && diasPrimeraQ != 0.0}">
+                                                <td class="td3" colspan="2" align="left">HS NORMALES 1RA QUINCENA</td>
+                                                <td class="td3" align="right"><span th:text="${recibo.diasprimeraQui}"></span></td>
+                                                <td class="td3" align="right"><span th:text="${recibo.diasPrimeraQ}"></span></td>
+                                                <td class="td3"></td>
+                                                <td class="td3"></td>
+                                            </tr>
+
+
+                                            <tr th:if="${diasSegundaQ != null && diasSegundaQ != 0.0}" >
+                                                <td class="td1" colspan="2" align="left">HS NORMALES 2DA QUINCENA</td>
+                                                <td class="td1" align="right"><span th:text="${recibo.diassegundaQui}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.diasSegundaQ}"></span></td>
+                                                <td class="td1" ></td>     
+                                                <td class="td1" ></td>
+
+                                            </tr>
+                                            <tr th:if="${recibo.premio1 > 0}">
+                                                <td class="td1" colspan="2" align="left">PREMIO Y ASIST. Y PUNT 1ERA</td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.premio1}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                            </tr>
+                                            <tr th:if="${recibo.premio2 > 0}">
+                                                <td class="td1" colspan="2" align="left">PREMIO Y ASIST. Y PUNT 2DA</td>
+                                                <td class="td1" ></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.premio2}"></span></td>
+                                                <td class="td1" ></td>
+                                                <td class="td1" ></td>
+
+                                            </tr> 
+                                            <tr th:if="${feriado1EraQ != null && feriado1EraQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">FERIADO PRIMERA QUINCENA</td>
+                                                <td class="td1" align="right"><span th:text="${feriado1EraQ}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.feriado1EraQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+
+
+                                            </tr>
+                                            <tr th:if="${feriado2DaQ != null && feriado2DaQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">FERIADO SEGUNDA QUINCENA</td>
+                                                <td class="td1" align="right"><span th:text="${feriado2DaQ}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.feriado2DaQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+
+                                            <tr th:if="${HsExtra50EraQ != null && HsExtra50EraQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">HS. EXTRAS 50% 1ERA QUI</td>
+                                                <td class="td1" align="right"><span th:text="${HsExtra50EraQ}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.HsExtra50EraQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+                                            <tr th:if="${HsExtra50DaQ != null && HsExtra50DaQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">HS. EXTRAS 50% 2DA QUI</td>
+                                                <td class="td1" align="right"><span th:text="${HsExtra50DaQ}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.HsExtra50DaQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+                                            <tr th:if="${bonificacion != null && bonificacion != 0.0}">
+                                                <td class="td1" colspan="2" align="left">BONIFICACION</td>
+                                                <td class="td1" align="right">%<span th:text="${bonificacion}"></span></td>
+                                                <td class="td1"align="right"><span th:text="${recibo.bonificado}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+
+                                            <tr th:if="${HsExtra100EraQ != null && HsExtra100EraQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">HS EXTRAS 100% 1ERA QUIN</td>
+                                                <td class="td1" align="right"><span th:text="${HsExtra100EraQ}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.HsExtra100EraQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+
+                                            <tr th:if="${HsExtra100DaQ != null && HsExtra100DaQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">HS EXTRAS 100% 2DA QUIN</td>
+                                                <td class="td1" align="right"><span th:text="${HsExtra100DaQ}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.HsExtra100DaQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+
+                                            <tr th:if="${HsNoct1EraQ != null && HsNoct1EraQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">HS NOCTURNAS 1ERA QUIN</td>
+                                                <td class="td1" align="right"><span th:text="${HsNoct1EraQ}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.HsNoct1EraQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+
+                                            <tr th:if="${HsNoct2DaQ != null && HsNoct2DaQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">HS NOCTURNAS 2DA QUIN</td>
+                                                <td class="td1" align="right"><span th:text="${HsNoct2DaQ}"></span></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.HsNoct2DaQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+
+                                            <tr th:if="${HsExtraNoct50EraQ != null && HsExtraNoct50EraQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">HS EXTRAS NOCTURNAS 1ERA QUIN</td>
+                                                <td class="td1" align="right"><span th:text="${HsExtraNoct50EraQ}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.HsExtraNoct50EraQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+
+                                            <tr th:if="${HsExtraNoct50DaQ != null && HsExtraNoct50DaQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">HS EXTRAS NOCTURNAS 2DA QUIN</td>
+                                                <td class="td1" align="right"><span th:text="${HsExtraNoct50DaQ}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.HsExtraNoct50DaQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+                                            <tr th:if="${recibo.compensacionMensual > 0}">
+                                                <td class="td1" colspan="2" align="left">COMPENSACION MENSUAL</td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.compensacionMensual}"></span></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="td1" colspan="2" align="left">ASIG. NO REMUNERATIVA PRE</td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.valornorem}"></span></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+
+                                            <tr th:if="${permiso1eraQ != null && permiso1eraQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">PERMISO 1ERA QUIN</td>
+                                                <td class="td1" align="right"><span th:text="${permiso1eraQ}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.permiso1eraQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+
+                                            <tr th:if="${permiso2DaQ != null && permiso2DaQ != 0.0}">
+                                                <td class="td1" colspan="2" align="left">PERMISO 2DA QUIN</td>
+                                                <td class="td1" align="right"><span th:text="${permiso2DaQ}"></span></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.permiso2DaQ}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+
+                                            <tr th:if="${ajustedeSueldo != null && ajustedeSueldo != 0.0}">
+                                                <td class="td1" colspan="2" align="left">AJUSTE MES ANTERIOR</td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right"><span th:text="${recibo.ajustedeSueldo}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="td1" colspan="2" align="left">JUBILACION</td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right">-<span th:text="${recibo.jubilacion}"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td1" colspan="2" align="left">LEY 19032</td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right">-<span th:text="${recibo.ley19032}"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td1" colspan="2" align="left">O.S.PERS.RURAL<!-- Y ESTIBADO -->.</td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right">-<span th:text="${recibo.obrasocial}"></span></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td class="td1" colspan="2" align="left">OBRA SOCIAL NO REM...</td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right">-<span th:text="${recibo.obrasocialnorem}"></span></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td class="td1" colspan="2" align="left">FEDERACION GREMIAL</td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right">-<span th:text="${recibo.federacion}"></span></td>
+                                            </tr>
+
+                                            <tr th:if="${respuesta eq 'si'}">
+                                                <td class="td1" colspan="2" align="left">CUOTA SINDICAL</td>
+                                                <td class="td1" align="right"><span th:text="${recibo.respuesta}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right">-<span th:text="${recibo.AFILIADO}"></span></td>
+                                            </tr>
+                                            <tr th:if="${respuesta eq 'si'}">
+                                                <td class="td1" colspan="2" align="left">RESOLUCION 16/11</td>
+                                                <td class="td1" align="right"><span th:text="${recibo.respuesta}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right">-<span th:text="${recibo.AFILIADO}"></span></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td class="td1" colspan="2" align="left">SEPELIO</td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right">-<span th:text="${recibo.sepelio}"></span></td>
+                                            </tr> 
+
+                                            <tr th:if="${descuentoajuste != null && descuentoajuste != 0.0}">
+                                                <td class="td1" colspan="2" align="left">DESCUENTO AJUSTE MES ANTERIOR</td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right">-<span th:text="${recibo.descuentoajuste}"></span></td>
+
+                                            </tr>
+
+                                            <tr th:if="${Comedor != null && Comedor != 0.0}">
+                                                <td class="td1" colspan="2" align="left">COMEDOR</td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right">-<span th:text="${recibo.comMer}"></span></td>
+                                            </tr>
+
+                                            <tr th:if="${pollo == 1 or supremacrispy == 1 or bocadito == 1 or medallon == 1 or nuguets == 1 or rikosaurio == 1 or cuartotrasero == 1 or salchichas == 1}">
+                                                <td class="td1" colspan="2" align="left">PRODUCTOS</td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1" align="right">-<span th:text="${recibo.merca}"></span></td>
+                                            </tr>
+
+                                            <tr th:if="${SUSPENSIONera != null && SUSPENSIONera != 0.0}">
+                                                <td class="td1" colspan="2" align="left">SUSPENSION 1ERA QUINCENA</td>
+                                                <td class="td1" align="right"><span th:text="${recibo.SUSPENSIONera}"></span></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+                                                <td class="td1"></td>
+
+                                            </tr>
+
+                                            <tr th:if="${SUSPENSIONda != null && SUSPENSIONda != 0.0}">
+                                                <td class="td2" colspan="2" align="left">SUSPENSION 2DA QUINCENA</td>
+                                                <td class="td2" align="right"><span th:text="${recibo.SUSPENSIONda}"></span></td>
+                                                <td class="td2"></td>
+                                                <td class="td2"></td>
+                                                <td class="td2"></td>
+
+                                            <tr>
+                                                <td class="td1" colspan="2" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td1" colspan="2" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td1" colspan="2" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td1" colspan="2" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td1" style="height: 1em; line-height: 1em;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td2" colspan="2" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td2" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td2" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td2" style="height: 1em; line-height: 1em;"></td>
+                                                <td class="td2" style="height: 1em; line-height: 1em;"></td>
+
+                                            </tr>
+
+                                            <td class="td3" colspan="3"></td>
+                                            <td class="textogris" colspan="3">TOTAL</td>
+                                </tr>
+                                <tr>
+                                    <td class="td1" colspan="3"></td>
+
+                                    <td class="textoverde">REMUNERATIVOS</td>
+                                    <td class="textoverde">NO REMUNERATIVOS</td>
+                                    <td class="textoverde">DESCUENTOS</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="td2" colspan="3"></td>
+                                    <td align="right"><span th:text="${recibo.TotalRemunerativo}"></span></td>
+                                    <td align="right"><span th:text="${recibo.NoRemunerativo}"></span></td>
+                                    <td align="right">-<span th:text="${recibo.TotalDescuentos}"></span></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" align="left">LUGAR Y FECHA DE PAGO: RIO CUARTO</td>
+
+                                    <td><strong> NETO A PAGAR </strong></td>
+                                    <td align="right"><strong><span th:text="${recibo.Neto}"></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" colspan="6">Son pesos:</td>
+
+                                    <!--  -------------------------------------------------------------------------- -->
+                                </tr>
+                                <tr>
+                                    <td class="td2" colspan="3">
+                                        <div class="box">OBSERVACIONES:</div>
+                                    </td>
+                                    <td rowspan="4" colspan="3" class="td2" style="height: 100%; vertical-align: bottom;">
+                                        <hr class="linea-acortada" style="margin-top: auto; margin-bottom: 0;">
+                                        <br>
+                                        <strong>FIRMA DEL EMPLEADO</strong>
+                                        <br>
+                                        <p class="br">Recibí la cantidad de pesos indicada de conformidad por<br> el pago de mi remuneración y duplicado de este recibo.</p>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td colspan="3">DEPOSITO JUBILATORIO (LEY 17250 ART.12)</td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="1">FECHA</td>
+                                    <td colspan="1">PERIODO</td>
+                                    <td colspan="1">BANCO</td>
+
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><span th:text="${recibo.mes}"></span></td>
+                                    <td>INTERBANKING</td>
+
+                                </tr>
+                            </table>
+                            </td>
+                            </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+
+       
+
+        <!-- Script para descargar el PDF al hacer clic en un botón 
+        <script th:inline="javascript">
+            function descargarPDF() {
+            // Simula el clic en un enlace invisible para descargar el PDF
+            var link = document.createElement('a');
+            link.href = '/generar-recibo-pdf'; // Ruta del controlador que genera el PDF
+            link.download = 'recibo-sueldo.pdf';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            }
+        </script>
+        <button type="button" onclick="descargarPDF()">Descargar PDF</button>-->
+
+        
+        
+        <!-- FRAGMENTS DEL FOOTER -->
+        <div th:replace="/fragments/footer :: div"></div>
+
+
+        <!-- Scripts de Bootstrap y jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+</html>

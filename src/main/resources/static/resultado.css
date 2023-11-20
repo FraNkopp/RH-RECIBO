@@ -1,0 +1,177 @@
+.tablin {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: -10%;
+    padding: 1cm;
+    background: white;
+}
+
+.tede {
+    border: 1px solid black; /* Agrega un borde a las celdas con la clase "tede" */
+    padding: 1cm; /* Agrega un relleno de 1 cm a las celdas con la clase "tede" */
+}
+
+body{
+    background: #8e9eab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+th, td {
+    border: 2px solid #ccc;
+    padding: -1px;
+    white-space: nowrap;
+    padding-left: 5px; /* Espacio en la izquierda de 5px */
+    padding-right: 5px; /* Espacio en la derecha de 5px */
+}
+
+.tabla-de-recibo {
+    width: 40%; /* Cambia este valor según tus necesidades */
+    padding: 1%;
+    text-align: center;
+    font-size: 10px;
+    text-transform: uppercase;
+
+}
+
+.td1 {
+    border-top: none; /* Eliminar el borde superior */
+    border-bottom: none; /* Eliminar el borde inferior */
+}
+.td2{
+    border-top: none; /* Eliminar el borde superior */
+}
+.td3{
+    border-bottom: none; /* Eliminar el borde inferior */
+}
+.textogris{
+    background-color: lightgray;
+}
+.textoverde{
+    background-color: green; 
+    color:white;
+}
+.img1 {
+    width: 100px;
+    /* Cambia este valor según el tamaño que desees */
+    height: auto;
+    /* Para mantener la proporción original de la imagen */
+    margin: -2%;
+
+}
+.logo1{
+    border-left: none;/*Borde izquierdo*/
+    border-right: none; /* Borde derecho */  
+}
+.logo2{
+    border-left: none;/*Borde izquierdo*/
+    text-align: right;
+}
+.logo0{
+    border-right: none; /* Borde derecho */ 
+}
+.mi-div {
+    width: 160px; /* Cambia este valor al ancho deseado, por ejemplo, 200 píxeles */
+    padding: 1px;
+}
+.mi-div p {
+    margin: 5px 0; /* Ajusta este valor según la separación vertical deseada */
+    text-align: left;
+}
+.no-original {
+    text-align: right;
+    width: 200px; /*EL WIDTH CORRE EL TEXTO O AGRANDA EL BORDE HACIA LA DERECHA*/
+    height: 80px;
+    padding: 1px;
+}
+.box{
+    text-align: left;
+    width: 40%;
+    height: 80px;
+    padding: 1px;
+
+}
+.br {
+    text-transform: lowercase; /*TRANSFORMAMOS EL TEXTO EN MINUSCULAS*/
+    font-size: 9px;
+    margin: 1px 0;
+}
+.br::first-letter {
+    text-transform: uppercase;/*LUEGO LE DECIMOS QUE SOLO LA PRIMERA LETRA SEA MAYUSCULA*/
+}
+.linea-acortada {
+    width: 50%; /* Puedes ajustar el porcentaje según tus necesidades */
+    margin: 0 auto; /* Esto centra el elemento <hr> en su contenedor */
+}
+/*INDEX*/
+.p1index {
+    color: black;
+    margin: -5px;
+    font-size: 20px;
+}
+
+.p2index {
+    color: black;
+    font-size: 20px;
+}
+
+.p3index {
+    color: rgb(252, 252, 252);
+    font-size: 25px;
+    margin: 5px;
+
+}
+
+hr{
+    margin: 300px 
+}
+
+.imghtml {
+    width: 100px;
+    /* Cambia este valor según el tamaño que desees */
+    height: auto;
+    /* Para mantener la proporción original de la imagen */
+    margin: -2%;
+
+}
+
+/* NUEVOS CAMBIOS*/
+
+footer {
+    background-color: #000000; /* Color de fondo negro */
+    opacity: 0.8; /* Opaca el color del FOOTER de 1.00 a 0.01 donde 1.00 es color normal */
+    color: #fff; /* Color de texto blanco */
+    padding: 15px 0; /* Espaciado interior solo en los lados izquierdo y derecho, sin espacio arriba/abajo */
+    margin: 0; /* Elimina los márgenes predeterminados */
+    text-align: center; /* Centra el contenido del pie de página */
+}
+.containerfooter {
+    text-align: center; /* Centrar el contenido del pie de página */
+}
+.content {
+    min-height: 100vh; /* Establece la altura mínima del contenido principal como el 100% del alto de la ventana (viewport height) */
+    display: flex;
+    flex-direction: column;
+}
+/* Estilos para el contenedor de la imagen */
+.image-container {
+    width: 100%;
+    padding: 0; /* Elimina el relleno */
+    margin: 0; /* Elimina el margen */
+}
+
+/* Estilos para la imagen */
+.img-fluid {
+    max-width: 100%;
+    height: auto; /* Mantiene la proporción de aspecto de la imagen */
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+}
+@media (max-width: 768px) {
+    /* Estilos específicos para pantallas pequeñas */
+    .table td, .table th {
+        /* Aplicar estilos aquí */
+    }
+}
+.borde-negro {
+    border-bottom: 1px solid rgb(188, 188, 188); /* Borde inferior */
+}
