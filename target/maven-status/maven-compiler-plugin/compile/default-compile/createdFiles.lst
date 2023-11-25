@@ -3,5 +3,10 @@ recibo\Recibo2Application.class
 recibo\repositorios\ReciboRepositorio.class
 recibo\excepciones\MiException.class
 recibo\ConfiguracionSeguridad.class
+recibo\repositorios\UsuarioRepositorio.class
 recibo\entidades\Recibo.class
+recibo\servicios\UsuarioServicio.class
+recibo\enumeraciones\Rol.class
+recibo\controladores\UsuarioControlador.class
+recibo\entidades\Usuario.class
 recibo\servicios\ReciboServicio.class
