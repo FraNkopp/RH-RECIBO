@@ -2,10 +2,8 @@ package recibo.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
-
 /**
  *
  * @author FraNko
@@ -14,8 +12,9 @@ import org.hibernate.annotations.GenericGenerator;
 public class Recibo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
 
     private String legajo;
     private String apellido;
@@ -124,7 +123,7 @@ public class Recibo {
     public Recibo() {
     }
 
-    public Recibo(int id, String legajo, String apellido, String nombre, String segundonombre, String Mes, String Anio, String resp, String respuesta, double valorHoraNormal, double valorHoraNoRem, double premio1, double premio2, double feriado1, double feriado2, double extra1era, double extra2da, double bonificado, double Bonificacion, double extra100era, double extra100da, double hsnoct1era, double hsnoct2da, double horanoct50era, double horanoct50da, double ADELANTO, double descuentoajuste, double mercaderia, double Comedor, double pollo, double supremacrispy, double bocadito, double medallon, double nuguets, double rikosaurio, double cuartotrasero, double salchichas, double Comedor1, double pollo1, double supremacrispy1, double bocadito1, double medallon1, double nuguets1, double rikosaurio1, double cuartotrasero1, double salchichas1, double permiso1eraQ, double permiso2DaQ, double compensacionMensual, double valornorem, double jubilacion, double ley19032, double obrasocial, double obrasocialnorem, double federacion, double TotalRemunerativo, double NoRemunerativo, double TotalDescuentos, double Neto, double DiasPrimeraQ, double diasSegundaQ, double diasprimeraQui, double diassegundaQui, double Feriado1EraQ, double Feriado2DaQ, double HsExtra50EraQ, double HsExtra50DaQ, double HsExtra100EraQ, double HsExtra100DaQ, double HsNoct1EraQ, double HsNoct2DaQ, double HsExtraNoct50EraQ, double HsExtraNoct50DaQ, double permiso1era, double permiso2da, double sepelio, double AjustedeSueldo, double hsnoct1, double hsnoct2, double HsEnNegro, double AuxHsEnNegro, double valorHoraNegro, double CuotaSindical, double Resolucion, double AFILIADO, double comMer, double merca, double SUSPENSIONera, double SUSPENSIONda, double noremnormal1, double noctnorem1, double noct50norem1, double extra1, double extraCien1, double valornorem1, double premiorem1, double noremnormal2, double noctnorem2, double noct50norem2, double extra2, double extraCien2, double valornorem2, double premiorem2) {
+    public Recibo(String id, String legajo, String apellido, String nombre, String segundonombre, String Mes, String Anio, String resp, String respuesta, double valorHoraNormal, double valorHoraNoRem, double premio1, double premio2, double feriado1, double feriado2, double extra1era, double extra2da, double bonificado, double Bonificacion, double extra100era, double extra100da, double hsnoct1era, double hsnoct2da, double horanoct50era, double horanoct50da, double ADELANTO, double descuentoajuste, double mercaderia, double Comedor, double pollo, double supremacrispy, double bocadito, double medallon, double nuguets, double rikosaurio, double cuartotrasero, double salchichas, double Comedor1, double pollo1, double supremacrispy1, double bocadito1, double medallon1, double nuguets1, double rikosaurio1, double cuartotrasero1, double salchichas1, double permiso1eraQ, double permiso2DaQ, double compensacionMensual, double valornorem, double jubilacion, double ley19032, double obrasocial, double obrasocialnorem, double federacion, double TotalRemunerativo, double NoRemunerativo, double TotalDescuentos, double Neto, double DiasPrimeraQ, double diasSegundaQ, double diasprimeraQui, double diassegundaQui, double Feriado1EraQ, double Feriado2DaQ, double HsExtra50EraQ, double HsExtra50DaQ, double HsExtra100EraQ, double HsExtra100DaQ, double HsNoct1EraQ, double HsNoct2DaQ, double HsExtraNoct50EraQ, double HsExtraNoct50DaQ, double permiso1era, double permiso2da, double sepelio, double AjustedeSueldo, double hsnoct1, double hsnoct2, double HsEnNegro, double AuxHsEnNegro, double valorHoraNegro, double CuotaSindical, double Resolucion, double AFILIADO, double comMer, double merca, double SUSPENSIONera, double SUSPENSIONda, double noremnormal1, double noctnorem1, double noct50norem1, double extra1, double extraCien1, double valornorem1, double premiorem1, double noremnormal2, double noctnorem2, double noct50norem2, double extra2, double extraCien2, double valornorem2, double premiorem2) {
         this.id = id;
         this.legajo = legajo;
         this.apellido = apellido;
@@ -230,11 +229,11 @@ public class Recibo {
         this.premiorem2 = premiorem2;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -1053,5 +1052,6 @@ public class Recibo {
     public void setPremiorem2(double premiorem2) {
         this.premiorem2 = premiorem2;
     }
+
 
 }

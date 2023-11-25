@@ -5,8 +5,10 @@
  */
 package recibo.controladores;
 
+import recibo.entidades.Usuario;
+import recibo.enumeraciones.Rol;
 import recibo.excepciones.MiException;
-import recibo.servicios.UsuarioServicio;
+
 import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -21,7 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import recibo.entidades.Usuario;
+import recibo.servicios.UsuarioServicio;
 
 /**
  *
@@ -150,6 +152,33 @@ public class UsuarioControlador {
         }
     }
 
+    @GetMapping("/modificarAdmin/{id}")
+    public String modificarAdmin(ModelMap modelo) {
+        // Lógica para cargar datos necesarios, si es necesario
+        modelo.addAttribute("mensaje", "¡Bienvenido al formulario de modificación de contraseña!");
+        return "modificarAdmin";
+    }
+
+    @PostMapping("/modificarAdmin/{id}")
+    public String modificarAdmin(
+            @PathVariable String id,
+            @RequestParam String nombre,
+            @RequestParam String apellido,
+            @RequestParam String email,
+            @RequestParam Rol nuevoRol,
+            RedirectAttributes redirectAttributes
+    ) throws MiException {
+        try {
+            usuarioServicio.AdministradorModifica(id, nombre, apellido, email, nuevoRol);
+            redirectAttributes.addFlashAttribute("mensaje", "Usuario modificado Correctamente");
+            return "redirect:../perfilAdmin/{id}";
+        } catch (MiException ex) {
+            System.out.println(ex.getMessage());
+            redirectAttributes.addFlashAttribute("error", ex.getMessage());
+            return "redirect:../perfilAdmin/{id}";
+        }
+    }
+
     @GetMapping("/perfil/{id}")
     public String mostrarFormulario(@PathVariable String id, ModelMap modelo) {
         // Lógica para obtener el usuario por ID y agregarlo al modelo
@@ -202,6 +231,33 @@ public class UsuarioControlador {
             Usuario usuario = usuarioServicio.getOne(id);
             modelo.put("usuario", usuario);
             return "redirect:/perfil/{id}";
+        }
+    }
+
+    @GetMapping("/perfilAdmin/{id}")
+    public String mostrarFormularioAdmin(@PathVariable String id, ModelMap modelo) {
+        // Lógica para obtener el usuario por ID y agregarlo al modelo
+        Usuario usuario = usuarioServicio.getOne(id);
+        modelo.addAttribute("usuario", usuario);
+        return "adminModifica.html";
+    }
+
+    @PostMapping("/perfilAdmin/{id}")
+    public String mostrarFormularioAdmin(@PathVariable String id, @RequestParam String password, ModelMap modelo,
+            HttpSession session) throws Exception {
+        try {
+            System.out.println("Controlador de perfil ejecutado. ID: " + id);
+
+            Usuario usuario = usuarioServicio.actualizarPassword(id, password, password);
+            session.setAttribute("usuariosession", usuario);
+            return "redirect:/";
+        } catch (MiException ex) {
+            System.out.println("Error en el controlador de perfil: " + ex.getMessage());
+            modelo.put("error", ex.getMessage());
+            ex.printStackTrace();
+            Usuario usuario = usuarioServicio.getOne(id);
+            modelo.put("usuario", usuario);
+            return "redirect:/adminModifica/{id}";
         }
     }
 }

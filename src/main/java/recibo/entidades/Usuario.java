@@ -12,12 +12,9 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
 
-/**
- *
- * @author FraNko
- */
 @Entity
 public class Usuario {
+             
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")

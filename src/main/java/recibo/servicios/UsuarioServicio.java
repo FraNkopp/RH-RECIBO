@@ -5,10 +5,7 @@
  */
 package recibo.servicios;
 
-import recibo.entidades.Usuario;
-import recibo.enumeraciones.Rol;
-import recibo.excepciones.MiException;
-import recibo.repositorios.UsuarioRepositorio;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,6 +23,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import recibo.entidades.Usuario;
+import recibo.enumeraciones.Rol;
+import recibo.excepciones.MiException;
+import recibo.repositorios.UsuarioRepositorio;
 
 /**
  *
@@ -121,7 +122,37 @@ public class UsuarioServicio implements UserDetailsService {
         }
     }
 
-    ////////////////////////////
+    @Transactional
+    public Usuario AdministradorModifica(String id, String nombre, String apellido, String email, Rol nuevoRol) throws MiException {
+        if (nombre == null || nombre.isEmpty()) {
+            throw new MiException("el nombre no puede ser nulo o estar vacío");
+        }
+        if (apellido.isEmpty() || apellido == null) {
+            throw new MiException("el apellido no puede ser nulo o estar vacio");
+        }
+        if (email.isEmpty() || email == null) {
+            throw new MiException("el email no puede ser nulo o estar vacio");
+        }
+      
+        Optional<Usuario> respuesta = usuarioRepositorio.findById(id);
+        if (respuesta.isPresent()) {
+            Usuario usuario = respuesta.get();
+
+            // Update user information
+            usuario.setNombre(nombre);
+            usuario.setApellido(apellido);
+            usuario.setEmail(email);
+            
+
+            // Modificar el rol
+            usuario.setRol(nuevoRol);
+
+            usuarioRepositorio.save(usuario);
+            return usuario; // Returns the modified user
+        } else {
+            throw new MiException("Usuario no encontrado");
+        }
+    }
     @Transactional
     public Usuario actualizarPassword(String id, String currentPassword, String newPassword) throws MiException {
         Optional<Usuario> respuesta = usuarioRepositorio.findById(id);

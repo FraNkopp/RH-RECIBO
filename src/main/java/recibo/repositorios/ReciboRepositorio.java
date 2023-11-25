@@ -5,15 +5,16 @@
  */
 package recibo.repositorios;
 
-import recibo.entidades.Recibo;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import recibo.entidades.Recibo;
 
 /**
  *
  * @author FraNko
  */
 @Repository
-public interface ReciboRepositorio extends JpaRepository<Recibo, Integer>{
+public interface ReciboRepositorio extends JpaRepository<Recibo, String>{
     
 }
