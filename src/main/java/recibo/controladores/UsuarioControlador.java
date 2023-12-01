@@ -41,7 +41,7 @@ public class UsuarioControlador {
         return "index.html";
 
     }
-
+    
     //CORRESPONDE AL ADMIN
     @GetMapping("/lista")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")

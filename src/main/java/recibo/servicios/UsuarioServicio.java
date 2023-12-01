@@ -71,6 +71,7 @@ public class UsuarioServicio implements UserDetailsService {
         return usuarios;
     }
 
+    
     public void eliminarUsuario(String id) throws MiException {
         if (id.isEmpty() || id.equals("")) {
             throw new MiException("el id proporcionado es nulo");

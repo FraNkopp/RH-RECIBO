@@ -1,7 +1,6 @@
 package recibo.controladores;
 
-
-
+import javax.servlet.http.HttpSession;
 import recibo.entidades.Recibo;
 import recibo.excepciones.MiException;
 import recibo.servicios.ReciboServicio;
@@ -12,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import recibo.entidades.Usuario;
+import recibo.servicios.UsuarioServicio;
 
 /**
  *
@@ -23,14 +24,21 @@ public class ReciboControlador {
 
     @Autowired
     private ReciboServicio reciboServicio;
-
+    @Autowired
+    private UsuarioServicio usuarioServicio;
+    
     @GetMapping("/formulario")
     public String mostrarFormulario() {
         return "formulario.html"; // Debes crear la vista formulario.html
     }
+
     @GetMapping("/informacion")
-    public String mostrarInformacion() {
-        return "informacion.html"; 
+    public String mostrarInformacion(ModelMap modelo, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
+        if (usuario != null) {
+            modelo.put("usuario", usuarioServicio.getOne(usuario.getId()));
+        }
+        return "informacion.html";
     }
 
     @PostMapping("/resultado")
@@ -143,7 +151,6 @@ public class ReciboControlador {
         modelo.addAttribute("salchichas1", salchichas1);
 
         //////////////////////////////////////////////////////////////////////////////////////////
-
         modelo.addAttribute("recibo", recibo);
 
         return "resultado"; // Redirige a la página "resultado.html"
