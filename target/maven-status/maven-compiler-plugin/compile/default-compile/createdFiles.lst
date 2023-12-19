@@ -9,4 +9,5 @@ recibo\servicios\UsuarioServicio.class
 recibo\enumeraciones\Rol.class
 recibo\controladores\UsuarioControlador.class
 recibo\entidades\Usuario.class
+recibo\servicios\EmailServicio.class
 recibo\servicios\ReciboServicio.class

@@ -5,63 +5,8 @@ body {
     background-repeat: no-repeat; /* Para evitar la repetición de la imagen */
 
 }
-
 form{
     background-color: white;
-}
-.container {
-    max-width: 400%; /* Limita el ancho máximo del formulario */
-}
-
-.form-control {
-    width: 100%; /* Asegura que el campo de entrada ocupe todo el ancho disponible */
-    font-size: 14px; /* Tamaño de fuente de los campos */
-    padding: 8px 12px; /* Espaciado interno de los campos */
-}
-
-.form-check-input {
-    width: 16px;
-    height: 16px; /* Tamaño de los checkboxes/radios */
-}
-
-.form-check-label {
-    font-size: 14px; /* Tamaño de fuente de las etiquetas de los checkboxes/radios */
-}
-
-.btn-primary {
-    font-size: 14px; /* Tamaño de fuente del botón */
-    padding: 8px 16px; /* Espaciado interno del botón */
-}
-
-h2 {
-    font-size: 20px; /* Tamaño de fuente del título */
-    margin-bottom: 16px; /* Espaciado inferior del título */
-}
-
-p {
-    font-size: 12px; /* Tamaño de fuente del texto de descripción */
-    margin-bottom: 16px; /* Espaciado inferior del texto de descripción */
-}
-.form-label-left {
-    text-align: left; /* Alinea el texto del label a la izquierda */
-    width: 100%; /* Asegura que el label ocupe todo el ancho disponible */
-}
-
-
-.checkbox-label-left {
-    display: flex; /* Utiliza flexbox para alinear los elementos */
-    justify-content: flex-start; /* Alinea el contenido a la izquierda */
-    align-items: center; /* Centra verticalmente el contenido */
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
-}
-.alert-heading{
-    text-align: center;
-}
-.modal-con-borde {
-    min-height: 300px;
-    border: 2px solid #ccc; /* Ancho y color del borde */
-    border-radius: 10px;   /* Radio de borde para hacerlo redondeado */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para efecto de elevación */
 }
 .formulario-con-borde {
     border: 2px solid #ccc; /* Ancho y color del borde */
@@ -69,26 +14,13 @@ p {
     border-radius: 10px; /* Radio de borde para hacerlo redondeado */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para efecto de elevación */
 }
-/* CSS personalizado para aumentar el tamaño del texto */
-.text-large {
-    font-size: 18px; /* Ajusta el tamaño según tus preferencias */
-}
-
 /* NUEVOS CAMBIOS*/
-
 footer {
-    background-color: #000000; /* Color de fondo negro */
-    opacity: 0.8; /* Opaca el color del FOOTER de 1.00 a 0.01 donde 1.00 es color normal */
-    color: #fff; /* Color de texto blanco */
-    padding: 15px 0; /* Espaciado interior solo en los lados izquierdo y derecho, sin espacio arriba/abajo */
-    margin: 0; /* Elimina los márgenes predeterminados */
-    text-align: center; /* Centra el contenido del pie de página */
+    flex-shrink: 0;
+    height: 80px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
 }
-.containerfooter {
-    text-align: center; /* Centrar el contenido del pie de página */
-}
-.content {
-    min-height: 100vh; /* Establece la altura mínima del contenido principal como el 100% del alto de la ventana (viewport height) */
-    display: flex;
-    flex-direction: column;
-}
+
+

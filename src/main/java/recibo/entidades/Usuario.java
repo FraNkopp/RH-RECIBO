@@ -11,15 +11,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
-
 @Entity
 public class Usuario {
-             
+
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    
+
     private String nombre;
     private String apellido;
     private String email;
@@ -29,7 +28,9 @@ public class Usuario {
     private String sexo;
     @Enumerated(EnumType.STRING)
     private Rol rol;
-
+    /////
+    private String resetToken;
+    /////
     public Usuario() {
     }
 
@@ -97,7 +98,14 @@ public class Usuario {
         this.rol = rol;
     }
 
-    
+    public String getResetToken() {
+        return resetToken;
+    }
 
-    
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
+    }
+
+   
+
 }

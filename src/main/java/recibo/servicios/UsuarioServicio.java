@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,8 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
+    @Autowired
+    private EmailServicio emailServicio;
 
     @Transactional
     public void registrar(String nombre, String apellido, String email, String password, String Password2, Date fechaNacimiento, String sexo) throws Exception {
@@ -59,6 +62,25 @@ public class UsuarioServicio implements UserDetailsService {
         usuarioRepositorio.save(usuario);
     }
 
+    ////////////// 
+    // RECUPERACION DE PASSWORD
+    @org.springframework.transaction.annotation.Transactional
+    public void generarTokenYEnviarCorreo(String email) throws MiException {
+        Usuario usuario = usuarioRepositorio.buscarPorEmail(email);
+        if (usuario != null) {
+            String token = UUID.randomUUID().toString();
+            usuario.setResetToken(token);
+            usuarioRepositorio.save(usuario);
+
+            // Aquí llama al servicio de correo para enviar el correo electrónico con el token
+            String mensaje = "Utilice este enlace para restablecer su contraseña: http://localhost:8080/reset-password?token=" + token;
+            emailServicio.sendEmail("noreply@tuapp.com", email, "Restablecimiento de contraseña", mensaje);
+        } else {
+            throw new MiException("El correo electrónico proporcionado no está asociado a ninguna cuenta.");
+        }
+    }
+    //FIN DE RECUPERACION DE PASSWORD
+    ////////////////
     public Usuario getOne(String id) {
         return usuarioRepositorio.getOne(id);
     }
