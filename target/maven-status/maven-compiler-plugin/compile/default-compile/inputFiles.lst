@@ -1,13 +1,13 @@
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\ConfiguracionSeguridad.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\servicios\ReciboServicio.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\servicios\EmailServicio.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\repositorios\UsuarioRepositorio.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\enumeraciones\Rol.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\controladores\ReciboControlador.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\repositorios\ReciboRepositorio.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\entidades\Usuario.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\controladores\UsuarioControlador.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\servicios\UsuarioServicio.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\Recibo2Application.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\excepciones\MiException.java
-D:\FULL STACK 2023\RH-RECIBO\src\main\java\recibo\entidades\Recibo.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\servicios\UsuarioServicio.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\excepciones\MiException.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\controladores\ReciboControlador.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\entidades\Usuario.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\ReciboApplication.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\servicios\EmailServicio.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\controladores\UsuarioControlador.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\enumeraciones\Rol.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\repositorios\UsuarioRepositorio.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\ConfiguracionSeguridad.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\servicios\ReciboServicio.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\entidades\Recibo.java
+C:\Users\FraNko\Desktop\RECIBO-DE-SUELDO-main\src\main\java\recibos\repositorios\ReciboRepositorio.java
